@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>signin</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <script>
+        window.onload = function(){
+        var button = document.getElementById("btn_login");
+        button.onclick = function(){
+          var username = document.getElementById("username");
+          var password = document.getElementById("password");
+
+            if(username.value==""){
+              alert("ユーザー名またはご登録されたメールアドレスをご入力ください");
+            }else if(password.value==""){
+              alert("パースワードをご入力ください");
+            }else if(username.value=="田中さん" && password.value=="123456"){
+              // Htmlページを変える
+              window.location.href = "welcome.html";
+            }else if(username.value=="tanaka@yahoo.co.jp" && password.value=="123456"){
+              window.location.href = "welcome.html";
+            }else{
+              alert("正しいユーザー名とパスワードを入力ください");
+            }   
+          };
+    };
+  </script>
+</head>
+
+<body>
+  <div class="login">
+  <h1>Login</h1>
+  <!-- 入力して送信するパラメータはPOST -->
+  <!-- 画面表示のために必要なパラメータはGET -->
+  <form method="post" action="#" >
+
+    <!-- ユーザーの入力フォームを作る -->
+    <p><label class="label">ユーザー名</label><input type="text" id="username" class="input" name="user" placeholder="ユーザー名またはメールアドレス" required></p> 
+    <p><label class="label">パスワード</label><input type="password" id="password" class="input" name="password" placeholder="パースワード" required></p>
+    
+    <!-- ログインボタンを作る -->
+    <div id="login_sumit"> 
+      <input type="button" value="ログイン" id="btn_login">
+      <a href="#" id="forgetPw">パスワードを忘れた？</a>
+    </div>
+  </form>
+</div>
+</body>
+</html>
